@@ -17,7 +17,9 @@ class Timer {
     }
 
     thick = () => {
-        console.log("tick")
+        // get the value of the input, convert the string to number floated
+        const timeRemaining = parseFloat(this.durationInput.value);
+        this.durationInput.value = timeRemaining - 1;
     }
 }
 
