@@ -17,8 +17,13 @@ class Timer {
     }
 
     thick = () => {
-        // Hide the complexity of the how the thick works and time remained inside the getter and setter function upon invokation
-        this.timeRemaining -= 1;
+        if(this.timeRemaining <= 0){
+            this.pause()
+        } else {
+            // Hide the complexity of the how the thick works and time remained inside the getter and setter function upon invokation
+            this.timeRemaining -= 1;
+        }
+        
     }
 
     // get cause the function to immediately invoked as soon as it is being called
