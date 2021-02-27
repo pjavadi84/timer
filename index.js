@@ -17,9 +17,19 @@ class Timer {
     }
 
     thick = () => {
-        // get the value of the input, convert the string to number floated
-        const timeRemaining = parseFloat(this.durationInput.value);
-        this.durationInput.value = timeRemaining - 1;
+        // Hide the complexity of the how the thick works and time remained inside the getter and setter function upon invokation
+        this.timeRemaining -= 1;
+    }
+
+    // get cause the function to immediately invoked as soon as it is being called
+    get timeRemaining(){
+        // this is how we get the time remaining value
+        return parseFloat(this.durationInput.value);
+    }
+
+    set timeRemaining(time){
+        // this is how to set the time value 
+        this.durationInput.value = time;
     }
 }
 
