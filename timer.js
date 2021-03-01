@@ -15,10 +15,10 @@ class Timer {
 
     start = () => {
         if(this.onStart){
-            this.onStart();
+            this.onStart(this.timeRemaining);
         }
         this.tick()
-        this.interval = setInterval(this.tick, 1000);
+        this.interval = setInterval(this.tick, 20);
     }
 
     pause = () => {
@@ -33,9 +33,9 @@ class Timer {
             }
         } else {
             // Hide the complexity of the how the thick works and time remained inside the getter and setter function upon invokation
-            this.timeRemaining -= 1;
+            this.timeRemaining -= .02;
             if(this.onTick){
-                this.onTick();
+                this.onTick(this.timeRemaining);
             }
         }
         
@@ -49,6 +49,6 @@ class Timer {
 
     set timeRemaining(time){
         // this is how to set the time value 
-        this.durationInput.value = time;
+        this.durationInput.value = time.toFixed(2);
     }
 }
